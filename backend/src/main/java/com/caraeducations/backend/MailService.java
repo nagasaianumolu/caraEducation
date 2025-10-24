@@ -28,20 +28,27 @@ public class MailService {
     }
 
     public void sendApplyMail(ApplySubmission apply) {
-        try {
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setTo("nagasaianumolu@gmail.com");  
-            message.setSubject("New Apply Form Submission");
-            message.setText(
-                "Name: " + apply.getName() +
-                "\nEmail: " + apply.getEmail() +
-                "\nPhone: " + apply.getPhone() +
-                "\nCourse: " + apply.getCourse() +
-                "\nMessage: " + apply.getMessage()
-            );
-            mailSender.send(message);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    try {
+        System.out.println("Attempting to send Apply Form email for: " + apply.getName() + ", " + apply.getEmail());
+
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo("nagasaianumolu@gmail.com");  
+        message.setSubject("New Apply Form Submission");
+        message.setText(
+            "Name: " + apply.getName() +
+            "\nEmail: " + apply.getEmail() +
+            "\nPhone: " + apply.getPhone() +
+            "\nCourse: " + apply.getCourse() +
+            "\nMessage: " + apply.getMessage()
+        );
+
+        mailSender.send(message);
+
+        System.out.println("✅ Apply Form email sent successfully!");
+    } catch (Exception e) {
+        System.out.println("❌ Error sending Apply Form email:");
+        e.printStackTrace();
     }
 }
+}
+
