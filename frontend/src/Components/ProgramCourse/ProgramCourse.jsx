@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./ProgramCourse.css";
+import Navbar from "../Navbar/Navbar";
 import course_img from "../../assets/course-img.jpg"; // placeholder image
 import ece from "../../assets/ECE.jpg";
 import me from "../../assets/ME.jpg";
@@ -19,6 +20,7 @@ import es from "../../assets/ES.jpg";
 import fsd from "../../assets/FSD.jpg";
 import iot from "../../assets/IoT.jpg";
 import uiux from "../../assets/UI.jpg";
+import NavBar from "../Navbar/Navbar";
 const allPrograms = [
   {
     id: 1,
@@ -66,6 +68,8 @@ const ProgramCourses = () => {
   if (!program) return <div>Program not found!</div>;
 
   return (
+    <>
+    <NavBar />
     <div className="program-courses-container">
       <div className="header-section">
         <h1>{program.title}</h1>
@@ -97,6 +101,7 @@ const ProgramCourses = () => {
         Apply Now
       </button>
     </div>
+    </>
   );
 };
 

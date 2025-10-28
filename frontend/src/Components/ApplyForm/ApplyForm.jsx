@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import "./ApplyForm.css";
+import Navbar from "../Navbar/Navbar";
 
 const ApplyForm = () => {
   const location = useLocation();
@@ -54,9 +55,12 @@ const ApplyForm = () => {
       console.error("Error submitting form:", error);
       setResult("⚠️ Network or Server error. Please try again later.");
     }
+
   };
 
   return (
+    <>
+    <Navbar />
     <div className="apply-page-container">
       <div className="apply-card">
         <h2>Apply for Admission</h2>
@@ -134,6 +138,7 @@ const ApplyForm = () => {
         {result && <p className="result-message">{result}</p>}
       </div>
     </div>
+    </>
   );
 };
 
